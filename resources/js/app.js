@@ -29,11 +29,30 @@ Vue.use(VueAxios, axios);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 import IndexComponent from './components/IndexComponent.vue';
+import CreateComponent from './components/CreateComponent.vue';
+import EditComponent from './components/ShowComponent.vue';
+import ShowComponent from './components/ShowComponent.vue';
+
 const routes = [
     {
         name: 'posts',
         path: '/posts',
         component: IndexComponent
+    },
+    {
+        name: 'show',
+        path: '/posts/:id',
+        component: ShowComponent
+    },
+    {
+        name: 'create',
+        path: '/posts/create',
+        component: CreateComponent
+    },
+    {
+        name: 'edit',
+        path: '/posts/:id',
+        component: EditComponent
     },
 ];
 
