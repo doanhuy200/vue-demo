@@ -1,43 +1,25 @@
 <template>
     <div>
         <h1>Create A Post</h1>
-        <form @submit.prevent="addPost">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Post Title:</label>
-                        <input type="text" class="form-control" v-model="post.title">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Post Body:</label>
-                        <textarea class="form-control" v-model="post.body" rows="5"></textarea>
-                    </div>
-                </div>
-            </div><br />
-            <div class="form-group">
-                <button class="btn btn-primary">Create</button>
-            </div>
-        </form>
+        <form-component-post v-on:submitFormEvent="handleCreatePost"></form-component-post>
     </div>
 </template>
 
 <script>
+    import FormComponent from './Util/FormComponent';
+
     export default {
-        data(){
-            return {
-                post:{}
-            }
+        components: {
+            'form-component-post': FormComponent
         },
-        methods: {
-            addPost(){
+        methods:{
+            handleCreatePost(form){
                 let uri = 'http://vue-demo.local/api/v1/posts/store';
-                this.axios.post(uri, this.post).then((response) => {
-                    this.$router.push({name: 'posts'});
+                this.axios.post(uri, {
+                    'title': form.title,
+                    'description': form.description,
                 });
+                return this.$router.push('posts');
             }
         }
     }

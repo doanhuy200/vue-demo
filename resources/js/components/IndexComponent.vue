@@ -4,9 +4,10 @@
         <div class="row">
             <div class="col-md-10"></div>
             <div class="col-md-2">
-                <router-link :to="{ name: 'create' }" class="btn btn-primary">Create Post</router-link>
+                <router-link to="/posts/create" class="btn btn-primary">Create Post</router-link>
             </div>
-        </div><br />
+        </div>
+        <br />
 
         <table class="table table-hover">
             <thead>
@@ -43,5 +44,10 @@
                 this.posts = response.data;
             });
         },
+        methods: {
+            async createPost() {
+                return this.$router.push('posts/create');
+            },
+        }
     }
 </script>

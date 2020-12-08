@@ -26,7 +26,7 @@ class PostController extends Controller
     {
         $post = new Post([
             'title' => $request->get('title'),
-            'body' => $request->get('body')
+            'description' => $request->get('description')
         ]);
 
         $post->save();

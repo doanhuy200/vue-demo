@@ -30,7 +30,7 @@ Vue.use(VueAxios, axios);
 
 import IndexComponent from './components/IndexComponent.vue';
 import CreateComponent from './components/CreateComponent.vue';
-import EditComponent from './components/ShowComponent.vue';
+import EditComponent from './components/EditComponent.vue';
 import ShowComponent from './components/ShowComponent.vue';
 
 const routes = [
@@ -41,7 +41,7 @@ const routes = [
     },
     {
         name: 'show',
-        path: '/posts/:id',
+        path: '/posts/:id/show',
         component: ShowComponent
     },
     {
@@ -51,7 +51,7 @@ const routes = [
     },
     {
         name: 'edit',
-        path: '/posts/:id',
+        path: '/posts/:id/edit',
         component: EditComponent
     },
 ];
@@ -63,4 +63,6 @@ const routes = [
  */
 
 const router = new VueRouter({ mode: 'history', routes: routes});
-const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+const app = new Vue(
+    Vue.util.extend({ router }, App)
+).$mount('#app');
