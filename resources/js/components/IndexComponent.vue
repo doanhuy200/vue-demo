@@ -14,7 +14,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title post</th>
-                <th>Body post</th>
+                <th>Description post</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -22,7 +22,7 @@
             <tr v-for="post in posts" :key="post.id">
                 <td>{{ post.id }}</td>
                 <td><router-link :to="{name: 'show', params: { id: post.id }}">{{ post.title }}</router-link></td>
-                <td>{{ post.body }}</td>
+                <td>{{ post.description }}</td>
                 <td><router-link :to="{name: 'edit', params: { id: post.id }}" class="btn btn-primary">Edit</router-link></td>
             </tr>
             </tbody>
@@ -46,7 +46,7 @@
         },
         methods: {
             async createPost() {
-                return this.$router.push('posts/create');
+                return this.$router.push('/posts/create');
             },
         }
     }

@@ -19,7 +19,7 @@
                     'title': form.title,
                     'description': form.description,
                 });
-                return this.$router.push('posts');
+                return this.$router.push('/posts');
             }
         }
     }
