@@ -17,6 +17,9 @@ import axios from 'axios';
 import App from './App.vue';
 Vue.use(VueAxios, axios);
 
+import loader from "vue-ui-preloader";
+Vue.use(loader);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -28,33 +31,7 @@ Vue.use(VueAxios, axios);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-import IndexComponent from './components/IndexComponent.vue';
-import CreateComponent from './components/CreateComponent.vue';
-import EditComponent from './components/EditComponent.vue';
-import ShowComponent from './components/ShowComponent.vue';
-
-const routes = [
-    {
-        name: 'posts',
-        path: '/posts',
-        component: IndexComponent
-    },
-    {
-        name: 'show',
-        path: '/posts/:id/show',
-        component: ShowComponent
-    },
-    {
-        name: 'create',
-        path: '/posts/create',
-        component: CreateComponent
-    },
-    {
-        name: 'edit',
-        path: '/posts/:id/edit',
-        component: EditComponent
-    },
-];
+import { routes } from './components/src/routes';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -63,6 +40,9 @@ const routes = [
  */
 
 const router = new VueRouter({ mode: 'history', routes: routes});
+
 const app = new Vue(
-    Vue.util.extend({ router }, App)
+    Vue.util.extend({
+        router
+    }, App)
 ).$mount('#app');

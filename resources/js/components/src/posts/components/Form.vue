@@ -24,11 +24,7 @@
 </template>
 
 <script>
-    import ButtonComponent from './ButtonComponent';
     export default {
-        components: {
-            'button-component-create': ButtonComponent
-        },
         props: {
             postId: Number
         },

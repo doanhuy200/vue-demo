@@ -31,6 +31,7 @@
 </template>
 
 <script>
+    import LoadingComponent from '../Loading';
     export default {
         data() {
             return {
@@ -48,6 +49,7 @@
             async createPost() {
                 return this.$router.push('/posts/create');
             },
-        }
+        },
+        loading: LoadingComponent,
     }
 </script>

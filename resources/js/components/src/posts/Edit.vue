@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import FormComponent from "./Util/FormComponent"
+    import FormComponent from "./components/Form"
     export default {
         data() {
             return{
