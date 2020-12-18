@@ -2078,10 +2078,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   created: function created() {
     var _this = this;
 
-    var uri = 'http://vue-demo.local/api/v1/posts';
+    var uri = 'http://codeigniter-demo.local/api/posts';
     this.axios.get(uri).then(function (response) {
       console.log(response.data);
-      _this.posts = response.data;
+      _this.posts = response.data['posts'];
     });
   },
   methods: {
@@ -54901,36 +54901,6 @@ Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_1___default.a, axios__WEBPACK_IMPORTE
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// import Index from './components/src/posts/Index';
-// import Show from './components/src/posts/Show';
-// import Create from './components/src/posts/Create';
-// import Edit from './components/src/posts/Edit';
-// import IndexComponent from './components/IndexComponent.vue';
-// import CreateComponent from './components/CreateComponent.vue';
-// import EditComponent from './components/EditComponent.vue';
-// import ShowComponent from './components/ShowComponent.vue';
-// const routes = [
-//     {
-//         name: 'posts',
-//         path: '/posts',
-//         component: Index
-//     },
-//     {
-//         name: 'show',
-//         path: '/posts/:id/show',
-//         component: Show
-//     },
-//     {
-//         name: 'create',
-//         path: '/posts/create',
-//         component: Create
-//     },
-//     {
-//         name: 'edit',
-//         path: '/posts/:id/edit',
-//         component: Edit
-//     },
-// ];
 
 
 /**

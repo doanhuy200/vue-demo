@@ -31,7 +31,6 @@
 </template>
 
 <script>
-    import LoadingComponent from '../Loading';
     export default {
         data() {
             return {
@@ -39,10 +38,9 @@
             }
         },
         created() {
-            let uri = 'http://vue-demo.local/api/v1/posts';
+            let uri = 'http://codeigniter-demo.ddns.net/api/posts';
             this.axios.get(uri).then(response => {
-                console.log(response.data);
-                this.posts = response.data;
+                this.posts = response.data['posts'];
             });
         },
         methods: {
@@ -50,6 +48,5 @@
                 return this.$router.push('/posts/create');
             },
         },
-        loading: LoadingComponent,
     }
 </script>
