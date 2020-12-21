@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function () {
+   dd("Access http://vue-demo.ddns.net/posts");
+});
 Route::get('/{any}', function () {
     return view('post');
 })->where('any', '.*');
